@@ -29,10 +29,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1433.0
-offset_top = 302.0
-offset_right = 1733.0
-offset_bottom = 402.0
+offset_left = 428.0
+offset_top = 76.0
+offset_right = 728.0
+offset_bottom = 176.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
@@ -64,10 +64,10 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 574.0
-offset_top = 306.0
-offset_right = 619.0
-offset_bottom = 375.0
+offset_left = 543.0
+offset_top = 312.0
+offset_right = 588.0
+offset_bottom = 381.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -81,6 +81,18 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="YellowButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+
+[node name="PurpleButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+
+[node name="OrangeButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+
+[node name="WhiteButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+
+[node name="BlackButton" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 
 [node name="RestartButton" type="Button" parent="ButtonContainer"]
