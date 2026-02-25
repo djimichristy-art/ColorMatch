@@ -1,0 +1,21 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Color Match"
+config/description=" A fast-paced reflex and brain-training game where players must quickly match the color of the word displayed on the screen, not the text itself. With increasing speed and score streaks, it challenges both attention and reaction time in a fun, simple way"
+run/main_scene="uid://4k5ptsme47rl"
+config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")

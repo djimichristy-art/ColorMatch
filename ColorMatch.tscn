@@ -1,0 +1,131 @@
+[gd_scene load_steps=7 format=3 uid="uid://4k5ptsme47rl"]
+
+[ext_resource type="Script" uid="uid://p0cakaphistb" path="res://color_match.gd" id="1_lp0rn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wtcfe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtcfe"]
+bg_color = Color(0.96862745, 0.015686275, 0.34901962, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.017732387, 0.017732397, 0.017732365, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0e48y"]
+bg_color = Color(0.4729982, 0.5748947, 0.9404891, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_epypp"]
+bg_color = Color(0.10964351, 0.34201744, 0.2344316, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hol4"]
+bg_color = Color(0.92941177, 0.88235295, 0.15294118, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="ColorMatch" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lp0rn")
+
+[node name="WordLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 300.0
+offset_top = 150.0
+offset_right = 301.0
+offset_bottom = 253.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_wtcfe")
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 400.0
+offset_right = 294.0
+offset_bottom = 440.0
+
+[node name="RedButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9843137, 0.9529412, 0.9490196, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_wtcfe")
+
+[node name="BlueButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9867516, 0.9867516, 0.9867516, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_0e48y")
+
+[node name="GreenButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.014275181, 0.014275239, 0.0142751895, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_epypp")
+
+[node name="YellowButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0056611313, 0.0056611616, 0.0056611407, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hol4")
+
+[node name="RestartButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="pressed" from="ButtonsContainer/RedButton" to="." method="_on_red_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/BlueButton" to="." method="_on_blue_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/GreenButton" to="." method="_on_green_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/YellowButton" to="." method="_on_yellow_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/RestartButton" to="." method="_on_restart_button_pressed"]
