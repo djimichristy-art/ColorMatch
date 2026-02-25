@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=3 uid="uid://dibyq685fyyw2"]
+
+[ext_resource type="Script" uid="uid://p0cakaphistb" path="res://color_match.gd" id="1_iatae"]
+
+[node name="ColorMatch" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_iatae")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1850.0
+offset_top = -692.0
+offset_right = 2749.0
+offset_bottom = 1095.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.99701554, 0.73915106, 0.81901926, 1)
+
+[node name="WordLabel" type="Label" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1433.0
+offset_top = 302.0
+offset_right = 1733.0
+offset_bottom = 402.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 63.0
+offset_right = 158.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 30
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 14.0
+offset_top = 111.0
+offset_right = 146.0
+offset_bottom = 147.0
+grow_horizontal = 0
+
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 574.0
+offset_top = 306.0
+offset_right = 619.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RedButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+
+[node name="BlueButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+
+[node name="GreenButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+
+[node name="YellowButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="ButtonContainer"]
+visible = false
+layout_mode = 2
+
+[node name="GameTimer" type="Timer" parent="."]
