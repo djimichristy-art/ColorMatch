@@ -100,3 +100,5 @@ visible = false
 layout_mode = 2
 
 [node name="GameTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="ButtonContainer/RedButton" to="." method="_on_red_button_pressed"]
