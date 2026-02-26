@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dstdk4gq0tgdx"]
+
+[ext_resource type="Script" uid="uid://t2qevqcornia" path="res://endpage.gd" id="1_jvdcb"]
+
+[sub_resource type="Gradient" id="Gradient_1a7p1"]
+colors = PackedColorArray(0.8832991, 0.1550833, 0.3664857, 1, 0.9964269, 0.8082674, 0.46418923, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jvdcb"]
+gradient = SubResource("Gradient_1a7p1")
+
+[node name="Endpage" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jvdcb")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_right = 1148.0
+offset_bottom = 644.0
+texture = SubResource("GradientTexture1D_jvdcb")
+
+[node name="GameOverLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 137.0
+offset_right = 699.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(1, 0.06666667, 0.02745098, 1)
+theme_override_font_sizes/font_size = 45
+text = "Game Over"
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 457.0
+offset_right = 635.0
+offset_bottom = 507.0
+theme_override_colors/font_color = Color(0.7834733, 0.9171668, 0.79425585, 1)
+theme_override_font_sizes/font_size = 30
+text = "Restart"

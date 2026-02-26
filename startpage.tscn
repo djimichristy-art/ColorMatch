@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bim2atdxs4x1j"]
+
+[ext_resource type="FontFile" uid="uid://bvjm6magbe50j" path="res://assets/LINESeedJP-Regular.ttf" id="1_flpxy"]
+[ext_resource type="Script" uid="uid://d1uho1s5jj61i" path="res://startpage.gd" id="1_t2245"]
+
+[sub_resource type="Gradient" id="Gradient_t2245"]
+offsets = PackedFloat32Array(0, 0.026666667, 0.093333334, 0.16, 0.25333333, 0.32, 0.38, 0.68, 0.88666666, 1)
+colors = PackedColorArray(0.83466315, 0.1142341, 0.37331247, 1, 0.9706002, 0.18249905, 0.49441957, 1, 0.9965375, 0.5207973, 0.6771739, 1, 0.9034013, 0.22711691, 0.5422893, 1, 0.79599744, 0.26349583, 0.47774768, 1, 0.74903375, 0.2812091, 0.4761883, 1, 0.7854305, 0.20913538, 0.4741093, 1, 0.9084943, 0.17839429, 0.49904472, 1, 0.9607843, 0.41960785, 0.59607846, 1, 0.870145, 0.13522992, 0.34150904, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q8grx"]
+gradient = SubResource("Gradient_t2245")
+width = 255
+
+[node name="Startpage" type="Control"]
+layout_mode = 3
+anchor_right = 0.808
+anchor_bottom = 0.5
+offset_right = -930.81604
+offset_bottom = -324.0
+script = ExtResource("1_t2245")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 42.0
+offset_right = 1158.0
+offset_bottom = 685.0
+texture = SubResource("GradientTexture1D_q8grx")
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 370.0
+offset_top = 97.0
+offset_right = 778.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0.023529412, 0.27450982, 0.49019608, 1)
+theme_override_fonts/font = ExtResource("1_flpxy")
+theme_override_font_sizes/font_size = 42
+text = "Color Match Game"
+
+[node name="Instructions" type="Label" parent="."]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 258.0
+offset_right = 979.0
+offset_bottom = 487.0
+theme_override_colors/font_color = Color(0.96704453, 0.8094304, 0.9712239, 1)
+theme_override_font_sizes/font_size = 18
+text = "Welcome to Color Match!  
+
+This game will test your reflexes and focus.  
+A word will appear on the screen, colored differently than the text says.  
+Your task: Click the button that matches the COLOR of the word, not the word itself!  
+
+The background will keep changing colors, making it trickier.  
+Try to score as high as you can before time runs out!"
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 544.0
+offset_right = 603.0
+offset_bottom = 593.0
+theme_override_colors/font_color = Color(0.69803923, 0.9882353, 0.76862746, 1)
+theme_override_fonts/font = ExtResource("1_flpxy")
+theme_override_font_sizes/font_size = 36
+text = "Start"
