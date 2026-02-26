@@ -47,7 +47,7 @@ offset_right = 158.0
 offset_bottom = 112.0
 theme_override_font_sizes/font_size = 30
 
-[node name="TimeLabel" type="Label" parent="."]
+[node name="TimerLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -58,7 +58,9 @@ offset_right = 146.0
 offset_bottom = 147.0
 grow_horizontal = 0
 
-[node name="ButtonPanel" type="HBoxContainer" parent="."]
+[node name="GameTimer" type="Timer" parent="."]
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -71,38 +73,37 @@ offset_bottom = 381.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RedButton" type="Button" parent="ButtonPanel"]
+[node name="RedButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
 text = "RED"
 
-[node name="BlueButton" type="Button" parent="ButtonPanel"]
+[node name="BlueButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
 text = "BLUE"
 
-[node name="GreenButton" type="Button" parent="ButtonPanel"]
+[node name="GreenButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
 text = "GREEN"
 
-[node name="YellowButton" type="Button" parent="ButtonPanel"]
+[node name="YellowButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
 text = "YELLOW"
 
-[node name="PurpleButton" type="Button" parent="ButtonPanel"]
+[node name="PurpleButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
 text = "PURPLE"
 
-[node name="OrangeButton" type="Button" parent="ButtonPanel"]
+[node name="OrangeButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
 text = "ORANGE"
 
-[node name="WhiteButton" type="Button" parent="ButtonPanel"]
+[node name="WhiteButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
 text = "WHITE"
 
-[node name="BlackButton" type="Button" parent="ButtonPanel"]
+[node name="BlackButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
 text = "BLACK"
 
-[node name="GameTimer" type="Timer" parent="."]
-
-[connection signal="pressed" from="ButtonPanel/RedButton" to="." method="_on_red_button_pressed"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="pressed" from="ButtonsContainer/RedButton" to="." method="_on_red_button_pressed"]

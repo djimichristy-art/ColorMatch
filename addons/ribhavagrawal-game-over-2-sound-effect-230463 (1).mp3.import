@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://del6i2e6nlt2w"
+path="res://.godot/imported/ribhavagrawal-game-over-2-sound-effect-230463 (1).mp3-a2cfa5fba2cf8ea5cd9bf6f30896a198.mp3str"
+
+[deps]
+
+source_file="res://addons/ribhavagrawal-game-over-2-sound-effect-230463 (1).mp3"
+dest_files=["res://.godot/imported/ribhavagrawal-game-over-2-sound-effect-230463 (1).mp3-a2cfa5fba2cf8ea5cd9bf6f30896a198.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

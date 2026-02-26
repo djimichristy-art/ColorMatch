@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bim2atdxs4x1j"]
+[gd_scene load_steps=6 format=3 uid="uid://bim2atdxs4x1j"]
 
 [ext_resource type="FontFile" uid="uid://bvjm6magbe50j" path="res://assets/LINESeedJP-Regular.ttf" id="1_flpxy"]
 [ext_resource type="Script" uid="uid://d1uho1s5jj61i" path="res://startpage.gd" id="1_t2245"]
+[ext_resource type="AudioStream" uid="uid://cal2kkdap1sh3" path="res://assets/StartPageAudio.mp3" id="3_q8grx"]
 
 [sub_resource type="Gradient" id="Gradient_t2245"]
 offsets = PackedFloat32Array(0, 0.026666667, 0.093333334, 0.16, 0.25333333, 0.32, 0.38, 0.68, 0.88666666, 1)
-colors = PackedColorArray(0.83466315, 0.1142341, 0.37331247, 1, 0.9706002, 0.18249905, 0.49441957, 1, 0.9965375, 0.5207973, 0.6771739, 1, 0.9034013, 0.22711691, 0.5422893, 1, 0.79599744, 0.26349583, 0.47774768, 1, 0.74903375, 0.2812091, 0.4761883, 1, 0.7854305, 0.20913538, 0.4741093, 1, 0.9084943, 0.17839429, 0.49904472, 1, 0.9607843, 0.41960785, 0.59607846, 1, 0.870145, 0.13522992, 0.34150904, 1)
+colors = PackedColorArray(0.83466315, 0.1142341, 0.37331247, 1, 0.9706002, 0.18249905, 0.49441957, 1, 0.9965375, 0.5207973, 0.6771739, 1, 0.9034013, 0.22711691, 0.5422893, 1, 0.79599744, 0.26349583, 0.47774768, 1, 0.7121438, 0.25816432, 0.44891274, 1, 0.7854305, 0.20913538, 0.4741093, 1, 0.6524065, 0.373471, 0.52430356, 1, 0.9607843, 0.41960785, 0.59607846, 1, 0.870145, 0.13522992, 0.34150904, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_q8grx"]
 gradient = SubResource("Gradient_t2245")
@@ -65,3 +66,7 @@ theme_override_colors/font_color = Color(0.69803923, 0.9882353, 0.76862746, 1)
 theme_override_fonts/font = ExtResource("1_flpxy")
 theme_override_font_sizes/font_size = 36
 text = "Start"
+
+[node name="StartPageAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_q8grx")
+autoplay = true
