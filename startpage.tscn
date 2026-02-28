@@ -70,3 +70,5 @@ text = "Start"
 [node name="StartPageAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_q8grx")
 autoplay = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
