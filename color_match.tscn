@@ -1,109 +1,85 @@
-[gd_scene load_steps=2 format=3 uid="uid://dibyq685fyyw2"]
+[gd_scene load_steps=3 format=3 uid="uid://dibyq685fyyw2"]
 
 [ext_resource type="Script" uid="uid://p0cakaphistb" path="res://color_match.gd" id="1_iatae"]
 
-[node name="ColorMatchGame" type="Control"]
+[sub_resource type="Theme" id="Theme_iatae"]
+
+[node name="ColorMatch" type="Control"]
+modulate = Color(0.9915932, 0.7946061, 0.883331, 1)
 layout_mode = 3
 anchors_preset = 0
+offset_top = 640.0
+offset_bottom = 640.0
+scale = Vector2(-11.704384, -10.921348)
+theme = SubResource("Theme_iatae")
 script = ExtResource("1_iatae")
 
 [node name="Background" type="ColorRect" parent="."]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1796.0
-offset_top = -642.0
-offset_right = 2803.0
-offset_bottom = 1145.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.99701554, 0.73915106, 0.81901926, 1)
-
-[node name="WordLabel" type="Label" parent="."]
-z_index = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 428.0
-offset_top = 76.0
-offset_right = 728.0
-offset_bottom = 176.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 48
-horizontal_alignment = 1
-vertical_alignment = 1
+layout_mode = 0
+offset_left = -9000.389
+offset_top = -4664.626
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.9867894, 0.83050275, 0.9188264, 1)
 
 [node name="ScoreLabel" type="Label" parent="."]
-layout_mode = 1
-offset_left = 40.0
-offset_top = 63.0
-offset_right = 158.0
-offset_bottom = 112.0
-theme_override_font_sizes/font_size = 30
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="TimerLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 14.0
-offset_top = 111.0
-offset_right = 146.0
-offset_bottom = 147.0
-grow_horizontal = 0
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
-[node name="GameTimer" type="Timer" parent="."]
+[node name="WordLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
-[node name="ButtonsContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 543.0
-offset_top = 312.0
-offset_right = 588.0
-offset_bottom = 381.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ButtonsContainer" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="RedButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 2
-text = "RED"
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="BlueButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 2
-text = "BLUE"
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="GreenButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 2
-text = "GREEN"
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="YellowButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 2
-text = "YELLOW"
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="PurpleButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 2
-text = "PURPLE"
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="OrangeButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 2
-text = "ORANGE"
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="WhiteButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 2
-text = "WHITE"
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="BlackButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 2
-text = "BLACK"
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 
-[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
-[connection signal="pressed" from="ButtonsContainer/RedButton" to="." method="_on_red_button_pressed"]
+[node name="GameTimer" type="Timer" parent="."]

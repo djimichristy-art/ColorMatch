@@ -1,4 +1,3 @@
-
 extends Control
 
 # --- Constants ---
@@ -21,11 +20,11 @@ var current_color_name: String = ""
 var bg_timer_counter: float = 0
 
 # --- Nodes ---
-@onready var word_label = $WordLabel
+@onready var word_label =$TimerLabel 
 @onready var score_label = $ScoreLabel
 @onready var timer_label = $TimerLabel
 @onready var timer = $GameTimer
-@onready var buttons_container = $ButtonsContainer
+$WordLabel@onready var buttons_container = $ButtonsContainer
 @onready var background = $Background  # ColorRect
 
 # --- Ready ---

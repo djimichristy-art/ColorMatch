@@ -12,6 +12,8 @@ gradient = SubResource("Gradient_1a7p1")
 [node name="Endpage" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 1.0
+offset_right = 1.0
 script = ExtResource("1_jvdcb")
 
 [node name="Background" type="TextureRect" parent="."]

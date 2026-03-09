@@ -10,4 +10,4 @@ func _on_start_pressed():
 	if start_audio:
 		start_audio.play()
 	# Load the ColorMatchGame scene
-	get_tree().change_scene_to_file("res://ColorMatchGame.tscn")  # Make sure this path matches your file
+	get_tree().change_scene_to_file("res://color_match.tscn")  # Make sure this path matches your file
