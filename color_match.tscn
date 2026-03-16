@@ -7,79 +7,101 @@
 [node name="ColorMatch" type="Control"]
 modulate = Color(0.9915932, 0.7946061, 0.883331, 1)
 layout_mode = 3
-anchors_preset = 0
-offset_top = 640.0
-offset_bottom = 640.0
-scale = Vector2(-11.704384, -10.921348)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_iatae")
 script = ExtResource("1_iatae")
 
 [node name="Background" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -9000.389
-offset_top = -4664.626
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.9867894, 0.83050275, 0.9188264, 1)
 
 [node name="ScoreLabel" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+offset_left = 37.0
+offset_top = 14.0
+offset_right = 93.0
+offset_bottom = 37.0
+text = "Score x00"
 
 [node name="TimerLabel" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 39.0
+offset_top = 53.0
+offset_right = 79.0
+offset_bottom = 76.0
+text = "Time:"
 
 [node name="WordLabel" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.018000001
+offset_left = -14.0
+offset_top = 55.0
+offset_right = 17.0
+offset_bottom = 66.336
+grow_horizontal = 2
+text = "RED"
 
-[node name="ButtonsContainer" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="ButtonsContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -15.5
+offset_right = 253.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="RedButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
+text = "RED"
 
 [node name="BlueButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
+text = "BLUE"
 
 [node name="GreenButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
+text = "GREEN"
 
 [node name="YellowButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
+text = "YELLOW"
 
 [node name="PurpleButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
+text = "PURPLE"
 
 [node name="OrangeButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
+text = "ORANGE"
 
 [node name="WhiteButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
+text = "WHITE"
 
 [node name="BlackButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
+text = "BLACK"
 
 [node name="GameTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

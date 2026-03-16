@@ -17,14 +17,15 @@ var COLOR_VALUES = {
 var score: int = 0
 var time_left: int = 20
 var current_color_name: String = ""
+var display_color_name: String = ""
 var bg_timer_counter: float = 0
 
 # --- Nodes ---
-@onready var word_label =$TimerLabel 
+@onready var word_label = $WordLabel
 @onready var score_label = $ScoreLabel
 @onready var timer_label = $TimerLabel
 @onready var timer = $GameTimer
-$WordLabel@onready var buttons_container = $ButtonsContainer
+@onready var buttons_container = $ButtonsContainer
 @onready var background = $Background  # ColorRect
 
 # --- Ready ---
@@ -35,7 +36,7 @@ func _ready():
 	update_score_label()
 	update_timer_label()
 	pick_new_color()
-	
+
 	# Connect buttons
 	if buttons_container:
 		for button in buttons_container.get_children():
@@ -44,30 +45,43 @@ func _ready():
 			if COLOR_VALUES.has(color_name):
 				button.modulate = COLOR_VALUES[color_name]
 			if not button.pressed.is_connected(self._on_answer_button_pressed):
-				button.pressed.connect(_on_answer_button_pressed, [button])
+				button.pressed.connect(_on_answer_button_pressed.bind(button))
 	
+	# Start the countdown timer
 	if timer:
+		timer.wait_time = 1
+		timer.one_shot = false
 		timer.start()
+		timer.timeout.connect(_on_GameTimer_timeout)
 	else:
 		print("Timer node not found!")
 
-# --- Pick new color ---
+# --- Pick new word and display color ---
 func pick_new_color():
-	if COLORS.size() == 0: return
+	if COLORS.size() == 0:
+		return
+	
+	# Pick the word
 	current_color_name = COLORS[randi() % COLORS.size()]
-	if word_label:
-		word_label.text = current_color_name
+	word_label.text = current_color_name
+	
+	# Pick a different color for the text
+	display_color_name = COLORS[randi() % COLORS.size()]
+	while display_color_name == current_color_name:
+		display_color_name = COLORS[randi() % COLORS.size()]
+	
+	word_label.modulate = COLOR_VALUES[display_color_name]
 
 # --- Button pressed ---
 func _on_answer_button_pressed(button):
 	if button == null: return
 	var button_color = button.get_meta("COLOR_NAME")
-	if button_color == current_color_name:
+	if button_color == display_color_name:
 		score += 1
 	update_score_label()
 	pick_new_color()
 
-# --- Labels ---
+# --- Update labels ---
 func update_score_label():
 	if score_label:
 		score_label.text = "Score: " + str(score)
@@ -85,15 +99,21 @@ func _process(delta):
 			# Lighter random colors so text is readable
 			background.color = Color(randf()*0.6 + 0.4, randf()*0.6 + 0.4, randf()*0.6 + 0.4)
 
-# --- Timer timeout ---
+# --- Timer countdown and Game Over ---
 func _on_GameTimer_timeout():
 	time_left -= 1
 	update_timer_label()
+	
 	if time_left <= 0:
 		if timer:
 			timer.stop()
+		
+		# --- Show Game Over screen ---
 		var end_page = get_parent().get_node("EndPage")
 		if end_page:
-			end_page.show_score(score)
-			self.visible = false
 			end_page.visible = true
+			if "show_score" in end_page:
+				end_page.show_score(score)  # make sure EndPage has this function
+			
+		# Hide the game screen
+		self.visible = false
