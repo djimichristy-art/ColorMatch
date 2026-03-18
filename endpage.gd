@@ -1,28 +1,22 @@
 extends Control
 
-# --- Nodes ---
+# Nodes
+@onready var game_over_label = $GameOverLabel
 @onready var restart_btn = $RestartButton
-@onready var score_label = $ScoreLabel
-@onready var end_audio = $EndPageAudio  # Your AudioStreamPlayer node with the mp3
+@onready var end_audio = $EndPageAudio
 
-var final_score: int = 0
+var score: int = 0  # optional if you want to show it later
 
 func _ready():
-	# Connect restart button
-	if not restart_btn.pressed.is_connected(self._on_restart_pressed):
-		restart_btn.pressed.connect(self._on_restart_pressed)
+	# Show score or message
+	game_over_label.text = "Game Over! Score: " + str(score)
 
-# --- Show final score and play sound ---
-func show_score(score):
-	final_score = score
-	score_label.text = "Your Score: " + str(final_score)
-	
-	# Play game over sound
+	# Play audio
 	end_audio.play()
 
-# --- Restart button pressed ---
+	# Connect restart
+	if not restart_btn.pressed.is_connected(_on_restart_pressed):
+		restart_btn.pressed.connect(_on_restart_pressed)
+
 func _on_restart_pressed():
-	# Optional: play click sound if you have one
-	# end_audio.play()  # if you want same sound on restart
-	
 	get_tree().change_scene_to_file("res://StartPage.tscn")

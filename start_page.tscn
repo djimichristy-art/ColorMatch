@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4y8sul7s6nn7"]
+
+[ext_resource type="Script" uid="uid://d1uho1s5jj61i" path="res://startpage.gd" id="1_mx1rd"]
+
+[sub_resource type="Gradient" id="Gradient_urypa"]
+offsets = PackedFloat32Array(0, 0.08, 0.15333334, 0.2, 0.26, 0.7, 0.82, 0.9066667, 0.96, 1)
+colors = PackedColorArray(0.93564624, 0.1918939, 0.4947436, 1, 0.9367438, 0.2732314, 0.49756366, 1, 0.8703634, 0.22285521, 0.42337227, 1, 0.9870023, 0.2595473, 0.5352985, 1, 0.93643945, 0.28796688, 0.49721545, 1, 0.9372549, 0.5372549, 0.6313726, 1, 0.9843137, 0.5921569, 0.7254902, 1, 0.99607843, 0.6039216, 0.69803923, 1, 0.9856016, 0.5800536, 0.73272866, 1, 0.9882353, 0.6901961, 0.8, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ea24q"]
+gradient = SubResource("Gradient_urypa")
+
+[node name="StartPage" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1144.0
+offset_bottom = 651.0
+texture = SubResource("GradientTexture1D_ea24q")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 71.0
+offset_right = 515.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 38
+text = "Color Match Game"
+
+[node name="DescriptionLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 206.0
+offset_right = 1538.0
+offset_bottom = 433.0
+theme_override_font_sizes/font_size = 27
+text = "A fast-paced game where players must click the color of the word displayed on the screen,
+ not what the word says. 
+The challenge increases as words appear faster, testing your reflexes and attention."
+
+[node name="start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 455.0
+offset_right = 557.0
+offset_bottom = 486.0
+theme_override_font_sizes/font_size = 40
+text = "Start"
+script = ExtResource("1_mx1rd")
+
+[connection signal="pressed" from="start" to="start" method="_on_pressed"]

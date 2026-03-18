@@ -44,7 +44,7 @@ func _ready():
 			button.set_meta("COLOR_NAME", color_name)
 			if COLOR_VALUES.has(color_name):
 				button.modulate = COLOR_VALUES[color_name]
-			if not button.pressed.is_connected(self._on_answer_button_pressed):
+			if not button.pressed.is_connected(_on_answer_button_pressed):
 				button.pressed.connect(_on_answer_button_pressed.bind(button))
 	
 	# Start the countdown timer
@@ -61,11 +61,9 @@ func pick_new_color():
 	if COLORS.size() == 0:
 		return
 	
-	# Pick the word
 	current_color_name = COLORS[randi() % COLORS.size()]
 	word_label.text = current_color_name
 	
-	# Pick a different color for the text
 	display_color_name = COLORS[randi() % COLORS.size()]
 	while display_color_name == current_color_name:
 		display_color_name = COLORS[randi() % COLORS.size()]
@@ -96,10 +94,9 @@ func _process(delta):
 	if bg_timer_counter >= 3.0:
 		bg_timer_counter = 0
 		if background:
-			# Lighter random colors so text is readable
 			background.color = Color(randf()*0.6 + 0.4, randf()*0.6 + 0.4, randf()*0.6 + 0.4)
 
-# --- Timer countdown and Game Over ---
+# --- Timer countdown and EndPage ---
 func _on_GameTimer_timeout():
 	time_left -= 1
 	update_timer_label()
@@ -108,12 +105,16 @@ func _on_GameTimer_timeout():
 		if timer:
 			timer.stop()
 		
-		# --- Show Game Over screen ---
-		var end_page = get_parent().get_node("EndPage")
-		if end_page:
-			end_page.visible = true
-			if "show_score" in end_page:
-				end_page.show_score(score)  # make sure EndPage has this function
-			
-		# Hide the game screen
+		# --- Load EndPage scene ---
+		var end_scene = load("res://EndPage.tscn")  # make sure path is correct
+		var end_page = end_scene.instantiate()
+		
+		# Pass the score to EndPage
+		if "score" in end_page:
+			end_page.score = score
+		
+		# Add EndPage to the scene tree
+		get_tree().current_scene.get_parent().add_child(end_page)
+		
+		# Hide the ColorMatch scene
 		self.visible = false
